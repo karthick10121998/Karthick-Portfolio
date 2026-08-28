@@ -1,0 +1,40 @@
+/**
+ * UX Field Notes: supplementary interactions preserve the warm-paper/ink editorial system.
+ * Motion is progressive, restrained, and only supports orientation or information discovery.
+ */
+
+.portfolio-loader { position: fixed; z-index: 500; inset: 0; display: grid; grid-template-rows: auto 1fr auto; padding: clamp(1.15rem, 4vw, 3rem); background: var(--paper); color: var(--ink); opacity: 1; transition: opacity .25s var(--ease-out), transform .25s var(--ease-out); }.portfolio-loader.is-leaving { opacity: 0; transform: translateY(-.5rem); }.loader-wordmark { width: max-content; font: 800 .72rem/1 var(--font-display); letter-spacing: -.04em; }.loader-wordmark span { font-size: 1.2rem; }.loader-center { align-self: center; justify-self: center; display: flex; align-items: baseline; gap: .14rem; }.loader-center p { position: absolute; margin: -3rem 0 0; color: var(--ink-faded); font: .5rem/1 var(--font-mono); letter-spacing: .06em; }.loader-center strong { font: 700 clamp(4rem, 9vw, 8rem)/.78 var(--font-display); letter-spacing: -.09em; }.loader-center em { font: .7rem/1 var(--font-mono); font-style: normal; }.loader-progress { align-self: end; height: 1px; background: var(--line); }.loader-progress i { display: block; height: 100%; background: var(--ink); transition: width .11s linear; }.loader-footer { justify-self: end; margin: 1rem 0 0; color: var(--ink-faded); font: .5rem/1.3 var(--font-mono); text-transform: uppercase; }
+
+.custom-cursor { --cursor-x: -80px; --cursor-y: -80px; position: fixed; z-index: 200; top: var(--cursor-y); left: var(--cursor-x); display: grid; width: 24px; height: 24px; place-items: center; border: 1px solid var(--ink); border-radius: 50%; pointer-events: none; opacity: 0; transform: translate(-50%, -50%) scale(.55); transition: width .2s var(--ease-out), height .2s var(--ease-out), background .2s var(--ease-out), border-color .2s var(--ease-out), opacity .15s var(--ease-out), transform .2s var(--ease-out); mix-blend-mode: difference; }.custom-cursor i { display: block; width: 4px; height: 4px; border-radius: 50%; background: #fff; transition: transform .2s var(--ease-out); }.custom-cursor.is-visible { opacity: 1; transform: translate(-50%, -50%) scale(1); }.custom-cursor.is-active { width: 42px; height: 42px; border-color: #fff; background: #fff; }.custom-cursor.is-active i { transform: scale(.5); }.custom-cursor.is-pressed { transform: translate(-50%, -50%) scale(.82); }
+
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) { body.has-ux-cursor, body.has-ux-cursor a, body.has-ux-cursor button, body.has-ux-cursor [role="tab"] { cursor: none; } body.has-ux-cursor input, body.has-ux-cursor textarea, body.has-ux-cursor select { cursor: text; } }
+
+.case-card-context {
+  position: absolute;
+  z-index: 1;
+  right: 1rem;
+  bottom: 4.2rem;
+  left: 1rem;
+  display: grid;
+  gap: .38rem;
+  padding-top: .75rem;
+  border-top: 1px solid rgba(255,255,255,.42);
+  opacity: 0;
+  transform: translateY(.85rem);
+  transition: opacity .28s var(--ease-out), transform .28s var(--ease-out);
+}
+.case-card-context span { color: #d9d9d2; font: .46rem/1 var(--font-mono); letter-spacing: .07em; text-transform: uppercase; }
+.case-card-context p { margin: 0; color: #fff; font: 500 .61rem/1.35 var(--font-body); }
+.case-card:hover .case-card-context, .case-card:focus-visible .case-card-context { opacity: 1; transform: translateY(0); }
+.case-modal-behance { display: inline-flex; align-items: center; gap: .4rem; width: max-content; margin-top: 1.3rem; padding-bottom: .25rem; border-bottom: 1px solid var(--ink); font: .53rem/1.3 var(--font-mono); text-decoration: none; text-transform: uppercase; }.case-modal-behance:hover { gap: .75rem; }
+
+.case-card-top > span:first-child, .case-card h3, .open-case { transition: transform .28s var(--ease-out), opacity .28s var(--ease-out); }.case-card:hover .case-card-top > span:first-child, .case-card:focus-visible .case-card-top > span:first-child { transform: translateY(-.18rem); }.case-card:hover h3, .case-card:focus-visible h3 { transform: translateX(.28rem); }.case-card:hover .open-case, .case-card:focus-visible .open-case { transform: translateY(0) translateX(-.12rem); }.capability-list button strong, .journey-list button strong { transition: letter-spacing .2s var(--ease-out); }.capability-list button:hover strong, .capability-list button.is-active strong, .journey-list button:hover strong, .journey-list button.is-active strong { letter-spacing: -.05em; }.skill-domain-grid article { transition: background .24s var(--ease-out), transform .24s var(--ease-out); }.skill-domain-grid article:hover { background: rgba(255,255,255,.055); transform: translateY(-.22rem); }.toolset-row em, .trusted-context em { transition: color .18s var(--ease-out); }.toolset-row em:hover, .trusted-context em:hover { color: #fff; }
+
+.will-reveal { opacity: 0; transform: translateY(1.3rem); transition: opacity .68s var(--ease-out), transform .68s var(--ease-out); }
+.will-reveal.reveal-delay-1 { transition-delay: 100ms; }.will-reveal.reveal-delay-2 { transition-delay: 180ms; }.will-reveal.reveal-delay-3 { transition-delay: 260ms; }.will-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+.testimonials-paper { display: grid; grid-template-columns: minmax(18rem, .72fr) minmax(0, 1.28fr); gap: clamp(3rem, 8vw, 9rem); padding: clamp(4.5rem, 8vw, 8rem) clamp(1.25rem, 4vw, 4rem); border-bottom: 1px solid var(--line); background: var(--paper); }.testimonials-paper > div { display: grid; align-content: start; gap: 1.25rem; }.testimonials-paper h2 { margin: 0; font: 700 clamp(2.8rem, 5.5vw, 5.8rem)/.9 var(--font-display); letter-spacing: -.075em; }.testimonials-paper h2 i { color: var(--ink-faded); font-style: normal; }.testimonial-slider { display: grid; align-content: center; min-height: 21rem; padding: clamp(1.5rem, 4vw, 3.5rem); border-top: 1px solid var(--line-dark); border-bottom: 1px solid var(--line-dark); animation: testimonialIn .4s var(--ease-out) both; }.testimonial-quote { max-width: 42rem; margin: 0; font: 500 clamp(1.35rem, 2.3vw, 2.35rem)/1.25 var(--font-display); letter-spacing: -.045em; }.testimonial-attribution { display: grid; gap: .25rem; margin-top: 2rem; }.testimonial-attribution span { font: .56rem/1.3 var(--font-mono); text-transform: uppercase; }.testimonial-attribution small { color: var(--ink-faded); font: .56rem/1.3 var(--font-mono); }.testimonial-controls { display: flex; justify-content: space-between; align-items: center; margin-top: 2.1rem; color: var(--ink-faded); font: .5rem/1 var(--font-mono); }.testimonial-controls > div { display: flex; gap: .4rem; }.testimonial-controls button { display: grid; width: 2.1rem; height: 2.1rem; place-items: center; border: 1px solid var(--line-dark); border-radius: 50%; background: transparent; cursor: pointer; transition: background .18s var(--ease-out), color .18s var(--ease-out), transform .18s var(--ease-out); }.testimonial-controls button:hover { background: var(--ink); color: #fff; }.testimonial-controls button:active { transform: scale(.94); }
+@keyframes testimonialIn { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: translateX(0); } }
+@media (prefers-reduced-motion: reduce) { .will-reveal { opacity: 1; transform: none; transition: none; } }
+@media (max-width: 900px) { .testimonials-paper { grid-template-columns: 1fr; gap: 3rem; } }
+@media (max-width: 640px) { .case-card-context { opacity: 1; transform: none; bottom: 3.8rem; }.case-card-context p { font-size: .56rem; }.testimonials-paper { padding: 4rem 1.15rem; }.testimonial-slider { min-height: 17rem; padding: 1.35rem 0; }.testimonial-quote { font-size: 1.45rem; } }
