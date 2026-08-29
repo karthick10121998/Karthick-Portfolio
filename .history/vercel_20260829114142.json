@@ -1,13 +1,21 @@
 {
-  "buildCommand": "pnpm run build",
+  "buildCommand": "pnpm install && pnpm run build",
   "outputDirectory": "dist/public",
+  "installCommand": "pnpm install --frozen-lockfile",
   "framework": "vite",
+
+  "env": {
+    "VITE_ANALYTICS_ENDPOINT": "@vite-analytics-endpoint",
+    "VITE_ANALYTICS_WEBSITE_ID": "@vite-analytics-website-id"
+  },
+
   "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/index.html"
     }
   ],
+
   "headers": [
     {
       "source": "/assets/(.*)",
