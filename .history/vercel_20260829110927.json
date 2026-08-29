@@ -1,0 +1,14 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+<<<<<<< HEAD
+}
+=======
+}
+>>>>>>> 65aed32f1a79f7c9b485a0b4d4950088da864474
